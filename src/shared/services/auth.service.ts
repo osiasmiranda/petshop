@@ -20,4 +20,8 @@ export class AuthService {
       accessToken
     };
   }
+
+  async validateUser(payload: JwtPayload): Promise<any> {
+    return await this.accountService.findOneByUsername(payload.username);
+  }
 }
